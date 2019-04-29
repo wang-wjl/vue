@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>快速入门</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{message}}<!-- Vue的差值表达式,把data中定义的数据显示到次数 -->
+			<br/>
+			<!-- 三元运算符 -->
+			{{false ? "OK":"NO"}}
+			<br/>
+			<!-- 可以使用运算符 -->
+			number={{number}}<br/>
+			{{number*3.14}}
+			<!-- 插值表达式不支持变量的声明 -->
+			<!-- {{var a=1;}} -->
+			
+			
+			
+		</div>
+	</body>
+	<script>
+		//view model
+		//创建vue对象
+		new Vue({
+			el:"#app",//由vue接管id为app区域
+			data:{
+				message:"hello Vue 2!" ,//注意 此处不要加分号
+				number:100
+			}
+
+		});
+	</script>
+</html>

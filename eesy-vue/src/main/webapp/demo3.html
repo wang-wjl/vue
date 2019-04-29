@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:keydown</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			Vue:<input type="text" v-on:keydown="fun($event)">
+			<hr/>
+			传统js<input type="text" onkeydown="showKeyCode()">
+		</div>
+	</body>
+	<script>
+		//view model
+		new Vue({
+			el:"#app",
+			methods:{
+				//$event vue中的事件对象 和我们传统event对象是一样的
+				fun:function(event){
+					var keyCode=event.keyCode; 
+					if(keyCode<48||keyCode>57)
+					{
+						//不要键盘的按键起作用
+						event.preventDefault();
+					}
+				}
+			}
+		});
+		//传统js键盘按下
+		function showKeyCode() {
+			//event对象和我们的document对象以及window对象是一样的 可以不用定义
+			var keyCode=event.keyCode; //0~9  48~57
+			alert(keyCode);
+			/* if(keyCode==13)
+			{
+				alert("回车键");
+			} */
+			/* if(keyCode<48||keyCode>57)
+			{
+				//不要键盘的按键起作用
+				event.preventDefault();
+			} */
+		}
+	</script>
+</html>
